@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/">back</a>
+    <a href="/task">back</a>
     <ul>
         @foreach ($tasks as $task)
         <li>{{$task->name}} [<a href="/trash/{{$task->id}}">></a>]

@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/">back</a>
+    <a href="/task">back</a>
     <h1>{{$task->name}}</h1>
 
-    <a href="/update/{{$task->id}}">edit</a>
+    <a href="/task/update/{{$task->id}}">edit</a>
 </body>
 </html>

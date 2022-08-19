@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/">back</a>
-    <form action="/add" method="post">
+    <a href="/task">back</a>
+    <form action="/task/add" method="post">
     @csrf
         Name: <input type="text" name="name" id="" required>
         Description: <input type="text" name="description" id="" required>

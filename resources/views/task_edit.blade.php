@@ -8,8 +8,8 @@
 </head>
 <body>
 
-    <a href="/{{$task->id}}">back</a>
-    <form action="/update/{{$task->id}}" method="post">
+    <a href="/task/{{$task->id}}">back</a>
+    <form action="/task/update/{{$task->id}}" method="post">
     @csrf
         Name: <input type="text" name="name" id="" value="{{$task->name}}" required>
         Description: <input type="text" name="description" id="" value="{{$task->description}}" required>

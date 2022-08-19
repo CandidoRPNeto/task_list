@@ -10,33 +10,43 @@ class TaskController extends Controller
 
     public function create()
     {
-        return view('create');
+        return view('task_create');
     }
 
     public function edit($id)
     {
-        return view('edit',['task' => Task::findOrFail($id)]);
+        return view('task_edit',['task' => Task::findOrFail($id)]);
+    }
+
+    public function completed()
+    {
+        return view('task_index',['tasks' => Task::where('is_complete',1)]);
+    }
+
+    public function search($name)
+    {
+        return view('task_index',['tasks' => Task::where('name', 'LIKE', "%{$name}%")->get()]);
     }
 
     public function index()
     {
-        return view('index',['tasks' => Task::all()]);
+        return view('task_index',['tasks' => Task::all()]);
     }
 
-    public function closedIndex()
+    public function deleteIndex()
     {
-        return view('trash_index',['tasks' => Task::onlyTrashed()->get()]);
+        return view('trash_task_index',['tasks' => Task::onlyTrashed()->get()]);
     }
 
 
     public function show($id)
     {
-        return view('show',['task' => Task::findOrFail($id)]);
+        return view('task_show',['task' => Task::findOrFail($id)]);
     }
 
-    public function showClosed($id)
+    public function showDelete($id)
     {
-        return view('trash_show',['task' => Task::onlyTrashed()->findOrFail($id)]);
+        return view('trash_task_show',['task' => Task::onlyTrashed()->findOrFail($id)]);
     }
 
 
@@ -61,7 +71,7 @@ class TaskController extends Controller
         return back();
     }
 
-    public function close($id)
+    public function delete($id)
     {
         Task::where('id',$id)->delete();
         return back();

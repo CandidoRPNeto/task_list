@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/add">+</a>
+    <a href="/task/add">+</a>
     <ul>
         @foreach ($tasks as $task)
-        <li>{{$task->name}} [<a href="/{{$task->id}}">></a>]
-            <form action="/{{$task->id}}" method="post"> @csrf @method('DELETE') <button type="submit">X</button></form>
+        <li>{{$task->name}} [<a href="/task/{{$task->id}}">></a>]
+            <form action="/task/{{$task->id}}" method="post"> @csrf @method('DELETE') <button type="submit">X</button></form>
         </li>
         @endforeach
     </ul>
