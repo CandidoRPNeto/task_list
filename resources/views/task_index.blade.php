@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/index_style.css')}}">
+    <title>TO-DO:task</title>
 </head>
 <body>
-    <a href="/task/add">+</a>
-    <ul>
+    <div class="block">
+        <h1>Tasks To Do</h1>
+        <div class="header">
+            <a href="/task/add" class="button">add</a>
+            <a href="" class="button">finished</a>
+        </div>
         @foreach ($tasks as $task)
-        <li>{{$task->name}} [<a href="/task/{{$task->id}}">></a>]
-            <form action="/task/{{$task->id}}" method="post"> @csrf @method('DELETE') <button type="submit">X</button></form>
-        </li>
+        <div class="task">
+            <div class="name">{{$task->name}}</div>
+            <div class="buttons">
+                <a href="/task/{{$task->id}}" class="button">></a>
+                <form action="/task/{{$task->id}}" method="post">
+                    @csrf @method('DELETE')
+                    <button type="submit" class="button">X</button>
+                </form>
+            </div>
+        </div>
         @endforeach
-    </ul>
-    <a href="/trash/index">trash</a>
+        <div class="header">
+            <a href="/trash/index" class="button">trash</a>
+        </div>
+    </div>
 </body>
 </html>
