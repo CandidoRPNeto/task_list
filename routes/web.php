@@ -41,6 +41,9 @@ Route::prefix('/trash')->group(function (){
 });
 
 
+Route::get('/ab',function(){
+    return view('dashboard');
+});
 
 
 
